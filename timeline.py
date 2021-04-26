@@ -57,7 +57,7 @@ TIMELINE_DEFAULT_OPTIONS = {
 
 DEFAULT_WIDTH = 50
 TEXT_WIDTH_MULTI = 2
-TEXT_HEIGHT = 20
+TEXT_HEIGHT = 35
 
 class Item(object):
     def __init__(
