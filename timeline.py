@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+
+"""
+This file is part of labella.py.
+This class is not included in the original Labella.js, but is modelled on
+https://kristw.github.io/d3kit-timeline/
+The idea is to make a simple timeline of objects which have text or no text.
+Items must be added as dicts: {'time': value, 'width': int, 'text': str} where
+the 'text' field and the 'width' field are optional and the value field can be
+either a date(time) instance or a float. The type must be the same for all
+values.
+Author: G.J.J. van den Burg
+License: Apache-2.0
+"""
+
 import datetime
 import math
 import os
