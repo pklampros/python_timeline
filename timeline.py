@@ -43,6 +43,7 @@ TIMELINE_DEFAULT_OPTIONS = {
     "showTicks": True,
     "borderColor": "#000",
     "showBorder": False,
+    "labelHeight": 35,
     "latex": {
         "fontsize": "11pt",
         "borderThickness": "very thick",
@@ -56,8 +57,8 @@ TIMELINE_DEFAULT_OPTIONS = {
 }
 
 DEFAULT_WIDTH = 50
+DEFAULT_HEIGHT = 35
 TEXT_WIDTH_MULTI = 2
-TEXT_HEIGHT = 35
 
 class Item(object):
     def __init__(
@@ -67,25 +68,21 @@ class Item(object):
         text=None,
         data=None,
         output_mode="svg",
-        tex_fontsize="11pt",
-        tex_preamble=None,
-        latexmk_options=None,
+        height=DEFAULT_HEIGHT,
     ):
         self.time = time
         self.text = text
         self.width = width
         self.data = data
         self.output_mode = output_mode
-        self.tex_fontsize = tex_fontsize
-        self.tex_preamble = tex_preamble
-        self.latexmk_options = latexmk_options
+        self.height = height
         if self.width is None and self.text:
             self.width, self.height = self.get_text_dimensions()
         else:
             self.height = 13.0
 
     def get_text_dimensions(self):
-        return len(self.text) * TEXT_WIDTH_MULTI, TEXT_HEIGHT
+        return len(self.text) * TEXT_WIDTH_MULTI, self.height
 
     def __str__(self):
         s = "Item(time=%r, text=%r, width=%r, height=%r, data=%r)" % (
@@ -149,6 +146,7 @@ class Timeline(object):
                 text=text,
                 data=d,
                 output_mode=output_mode,
+                height=self.options["labelHeight"]
             )
             items.append(it)
         return items
