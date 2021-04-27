@@ -11,7 +11,7 @@ import math
 
 from datetime import datetime
 
-from labella.d3_time import d3_time
+from d3_time import d3_time
 
 d3_identity = lambda x: x
 dt2milli = lambda x: x.timestamp() * 1000.0
